@@ -1,0 +1,33 @@
+/** Bootstrap **/
+@bootstrap-path: "/assets/css/vendor/bootstrap/";
+@import ~"@{bootstrap-path}bootstrap.less";
+@icon-font-path: "/fonts/";
+/** End bootstrap **/
+
+body {
+  padding-bottom: 70px;
+}
+.bottom-buffer {
+  margin-bottom: 30px;
+}
+.top-buffer {
+  margin-top: 30px;
+}
+
+.description {
+  h2 {
+    margin-top: 50px;
+  }
+  p {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-footer {
+    padding: 7.5px;
+    &.navbar-right {
+      padding-top: 0px;
+    }
+  }
+}
