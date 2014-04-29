@@ -9,6 +9,8 @@ class BoxWino < Sinatra::Base
   set :root, File.dirname(__FILE__) # You must set app root
   configure do
     set :site_name, "Box Wino"
+    set :google_analytics_code, "UA-37335957-3"
+    set :site_host, "boxwino.com"
   end
 
   register Sinatra::AssetPack
