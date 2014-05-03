@@ -1,50 +1,23 @@
 <div class="row">
-  <div class="col-sm-4 col-sm-offset-4 text-center">
-    <a href="/"><img src="/images/logo.jpg" class="img-responsive" style="margin-left:auto;margin-right:auto;" /></a>
-    <hr />
-  </div>
   <div class="col-sm-6 col-sm-offset-3 text-center">
 
     <h1 class="bottom-buffer">Why Box Wine?</h1>
 
-    <div class="description">
-      <h2>
-        <% 4.times do %>
-        <i class="glyphicon glyphicon-glass"></i>
-        <% end %>
-      </h2>
-
-      <p>A box of wine typically holds 3 liters, equal to <em>four</em> bottles of wine.</p>
-      <p>Going to a BYOB restaurant with a $10 corkage fee? That works out to...</p>
-
-<code><pre>
-(boxes * corkage fee) / (bottles * corkage fee) =
-(1 * 10) / (4 * 10) = 25%
-</pre></code>
-      <p>...a savings of 75%!</p>
-    </div>
+    <% @why_box_wine.each do |why| %>
 
     <div class="description">
+      <% why.tags.grep(/(glyphicon-[\w-_ ]+)-(\d+)/i) do |glyph| %>
       <h2>
-        <% 7.times do %>
-        <i class="glyphicon glyphicon-tree-deciduous"></i>
+        <% "#{$2}".to_i.times do %>
+        <i class="glyphicon <%= "#{$1}" %>"></i>
         <% end %>
       </h2>
+      <% end %>
 
-      <p>According to <a target="blank" href="http://www.botabox.com/Benefits/FAQ/">Bota Box</a>, box wines "create 85% less landfill waste than traditional glass packages".</p>
-      <p>That's roughly 7x better for the environment!</p>
+      <%= why.body %>
     </div>
 
-    <div class="description">
-      <h2>
-        <% 10.times do %>
-        <i class="glyphicon glyphicon-time"></i>
-        <% end %>
-      </h2>
-
-      <p>Box wine lasts over a month after opening because no air gets into the bladder as you drink the wine.</p>
-      <p>That's 15x longer than a typical bottle would last, or 10x longer if using a bottle pump.</p>
-    </div>
+    <% end %>
 
     <hr />
 

@@ -3,15 +3,9 @@
 # run with the command 'rackup'
 require 'sinatra/base'
 require 'sinatra/assetpack'
-require 'less'
 
 class BoxWino < Sinatra::Base
   set :root, File.dirname(__FILE__) # You must set app root
-  configure do
-    set :site_name, "Box Wino"
-    set :google_analytics_code, "UA-37335957-3"
-    set :site_host, "boxwino.com"
-  end
 
   register Sinatra::AssetPack
 
@@ -38,7 +32,16 @@ class BoxWino < Sinatra::Base
     css_compression :simple
   }
 
+  get '/reset' do
+    5.times do |page|
+      Mumblr::Post.all!(offset: page * 20)
+    end
+    redirect to('/')
+  end
+
   get '/' do
-    erb :index
+    @why_box_wine = Mumblr::TextPost.tagged('why box wine').sort(:timestamp.asc)
+
+    erb :index , locals: { why_box_wine: @why_box_wine }
   end
 end

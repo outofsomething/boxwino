@@ -1,24 +1,69 @@
+GIT
+  remote: git://github.com/thelowlypeon/mumblr.git
+  revision: 5410d8ef0bbdba16cc6751fd999a57f6efccc02f
+  specs:
+    mumblr (0.0.3)
+      bson_ext (~> 1.5)
+      mongo_mapper
+      tumblr_client
+
 GEM
   remote: http://rubygems.org/
   specs:
+    activemodel (4.1.0)
+      activesupport (= 4.1.0)
+      builder (~> 3.1)
+    activesupport (4.1.0)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.1)
+      tzinfo (~> 1.1)
+    bson (1.10.0)
+    bson_ext (1.10.0)
+      bson (~> 1.10.0)
+    builder (3.2.2)
     commonjs (0.2.7)
     daemons (1.1.9)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     eventmachine (1.0.3)
+    faraday (0.8.0)
+      multipart-post (~> 1.1)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
+    i18n (0.6.9)
     jsmin (1.0.1)
+    json (1.8.1)
     less (2.5.0)
       commonjs (~> 0.2.7)
     libv8 (3.16.14.3)
+    mime-types (2.2)
+    minitest (5.3.3)
+    mongo (1.10.0)
+      bson (~> 1.10.0)
+    mongo_mapper (0.13.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0)
+      mongo (~> 1.8)
+      plucky (~> 0.6.5)
+    multipart-post (1.2.0)
+    oauth (0.4.7)
+    plucky (0.6.6)
+      mongo (~> 1.5)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
     ref (1.0.5)
+    simple_oauth (0.2.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
-    sinatra-assetpack (0.3.2)
+    sinatra-assetpack (0.3.3)
       jsmin
       rack-test
       sinatra
@@ -30,13 +75,26 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
+    thread_safe (0.3.3)
     tilt (1.4.1)
+    tumblr_client (0.8.2)
+      faraday (>= 0.8)
+      faraday_middleware (>= 0.8)
+      json
+      mime-types
+      oauth
+      simple_oauth
+    tzinfo (1.1.0)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
+  faraday (= 0.8.0)
   less
+  mumblr!
   sinatra
   sinatra-assetpack
   therubyracer
