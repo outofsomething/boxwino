@@ -1,0 +1,25 @@
+<div class="row bottom-buffer">
+  <% @wheres.each do |where| %>
+  <div class="col-sm-12 text-center">
+  <h1><%= where.title %></h1>
+
+  <%= where.body %>
+  </div>
+  <% end %>
+</div>
+
+<div class="row text-center top-buffer">
+  <% 2.times do |i| %>
+    <div class="col-md-6" style="display:inline;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Box Wino -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:250px;height:250px"
+         data-ad-client="ca-pub-5581753242562587"
+         data-ad-slot="7616379350"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </div>
+  <% end unless settings.environment == :production %>
+</div>

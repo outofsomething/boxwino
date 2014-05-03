@@ -13,6 +13,11 @@ body {
 .top-buffer {
   margin-top: 30px;
 }
+.nav.navbar.navbar-header {
+  width: 100% !important;
+  margin-bottom: 0;
+  padding-bottom:0;
+}
 
 .description {
   h2 {
@@ -30,4 +35,26 @@ body {
       padding-top: 0px;
     }
   }
+
+  .nav ul.nav li {
+    display: inline;
+    a {
+      display: inline-block; 
+      padding: 10px 5px;
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .navbar-nav{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float: none;
+  }
+}  
+
+#box-wino-logo { min-height: 170px; }
+@media (min-width: 992px) {
+  #box-wino-logo { min-height: 219px; }
 }

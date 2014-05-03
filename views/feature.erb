@@ -1,0 +1,31 @@
+<% image = wine.photos.first.alt_sizes.select{|photo| photo['width'].between?(150,250)}.first %>
+<div class="col-sm-6 col-md-4">
+  <div class="text-center">
+    <img class="img-responsive" style="max-width:180px;max-height180px;margin:0 auto;" src="<%= image['url'] %>" />
+  </div>
+
+  <%= wine.caption %>
+
+  <% wine.tags.grep(/(\d+)(\.\d+)?[ _-]{1}stars/i) do |glyph| %>
+      <h3 class="rating">
+        <% "#{$1}".to_i.times do %>
+        <i class="glyphicon glyphicon-star"></i>
+        <% end %>
+        <% if "#{$2}".present? %>
+        <i style="display:inline-block;overflow:hidden;width:.5em;" class="glyphicon glyphicon-star"></i>
+        <% end %>
+      </h3>
+  <% end %>
+
+  <ul class="wine-attributes list-unstyled">
+    <% wine.tags.grep(/(size|price|hangover)_(.*)/i) do |glyph| %>
+      <li>
+        <strong><%= "#{$1}".camelize %></strong>:
+        <%= $1 == "price" ? "$" : "" %><%= "#{$2}" %>
+      </li>
+      <% end %>
+  </ul>
+
+  <hr />
+</div>
+

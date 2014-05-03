@@ -39,9 +39,30 @@ class BoxWino < Sinatra::Base
     redirect to('/')
   end
 
-  get '/' do
+  get '/why' do
     @why_box_wine = Mumblr::TextPost.tagged('why box wine').sort(:timestamp.asc)
 
-    erb :index , locals: { why_box_wine: @why_box_wine }
+    erb :why , locals: { why_box_wine: @why_box_wine }
+  end
+
+  get '/wine' do
+    redirect to('/wines')
+  end
+
+  get '/wines' do
+    @wine_features = Mumblr::PhotosetPost.tagged('wine_feature').sort(:timestamp.asc)
+
+    erb :wines , locals: { wine_features: @wine_features }
+  end
+
+  get '/where' do
+    @wheres = Mumblr::TextPost.tagged('where_to_buy').sort(:timestamp.asc).first
+
+    erb :where , locals: { wheres: @wheres }
+  end
+
+  get '/' do
+    @welcome_message = Mumblr::TextPost.tagged('welcome_message').sort(:timestamp.asc).first
+    erb :index , locals: { welcome_message: @welcome_message }
   end
 end
