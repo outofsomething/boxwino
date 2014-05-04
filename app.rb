@@ -10,10 +10,11 @@ class BoxWino < Sinatra::Base
   register Sinatra::AssetPack
 
   assets {
-    serve '/js',     from: 'assets/js'        # Default
-    serve '/css',    from: 'assets/css'       # Default
-    serve '/fonts',  from: 'assets/fonts'     # Default
-    serve '/images', from: 'assets/images'    # Default
+    serve '/js',       from: 'assets/js'        # Default
+    serve '/css',      from: 'assets/css'       # Default
+    serve '/fonts',    from: 'assets/fonts'     # Default
+    serve '/images',   from: 'assets/images'    # Default
+    serve '/favicons', from: 'assets/favicons'    # Default
 
     # The second parameter defines where the compressed version will be served.
     # (Note: that parameter is optional, AssetPack will figure it out.)
