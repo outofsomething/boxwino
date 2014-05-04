@@ -56,7 +56,7 @@ class BoxWino < Sinatra::Base
   end
 
   get '/where' do
-    @wheres = Mumblr::TextPost.tagged('where_to_buy').sort(:timestamp.asc).first
+    @wheres = Mumblr::TextPost.tagged('where_to_buy').sort(:timestamp.asc)
 
     erb :where , locals: { wheres: @wheres }
   end

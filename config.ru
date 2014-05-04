@@ -1,6 +1,6 @@
 # encoding: UTF-8
-require './app.rb'
 require 'dotenv'
+require './app.rb'
 require 'less'
 require 'mumblr'
 
