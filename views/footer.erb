@@ -1,15 +1,5 @@
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-footer text-center">
-      <span class="navbar-text" style="margin-right:0;">&copy; <%= Time.new.year %></span> <a class="navbar-text" target="blank" href="http://outofsomething.com">Out of Something, LLC</a>
-    </div>
-    <div class="navbar-footer navbar-right text-center">
-      <span class="navbar-text" style="margin-right:0;"><i class="glyphicon glyphicon-glass"></i> Enjoy your box responsibly</span>
-    </div>
-  </div><!-- /.container-fluid -->
-</nav>
-
 <% if settings.environment == :production %>
+
 <hr />
 
 <div class="col-sm-12 text-center top-buffer">
@@ -28,6 +18,22 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div>
+<div class="clearfix"></div>
+
+<% end %>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-footer text-center">
+      <span class="navbar-text" style="margin-right:0;">&copy; <%= Time.new.year %></span> <a class="navbar-text" target="blank" href="http://outofsomething.com">Out of Something, LLC</a>
+    </div>
+    <div class="navbar-footer navbar-right text-center">
+      <span class="navbar-text" style="margin-right:0;"><i class="glyphicon glyphicon-glass"></i> Enjoy your box responsibly</span>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<% if settings.environment == :production %>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
