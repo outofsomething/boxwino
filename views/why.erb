@@ -3,7 +3,7 @@
 
     <h1 class="bottom-buffer">Why Box Wine?</h1>
 
-    <% @why_box_wine.each do |why| %>
+    <% why_box_wine.each do |why| %>
 
     <div class="description">
       <% why.tags.grep(/(glyphicon-[\w_ -]+)-(\d+)/i) do |glyph| %>

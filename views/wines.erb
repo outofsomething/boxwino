@@ -3,8 +3,8 @@
   <h1>The Best Boxes</h1>
   <h2 class="sr-only">What box wine should I buy?</h2>
 
-  <% @wine_features.each_with_index do |wine, index| %>
+  <% wine_features.each_with_index do |wine, index| %>
     <%= erb :feature, locals: { wine: wine } %>
-  <% end unless @wine_features.nil? %>
+  <% end unless wine_features.nil? %>
   </div>
 </div>

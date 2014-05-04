@@ -32,6 +32,14 @@ class BoxWino < Sinatra::Base
     css_compression :simple
   }
 
+  #set defaults for the layout
+  before do
+    @page = Hash.new
+    @page['title']       = "Box Wino" #settings.site_name
+    @page['keywords']    = ["box wine", "alcohol", "wine", "affordable"]
+    @page['description'] = "For the love of the box wine."
+  end
+
   get '/reset' do
     5.times do |page|
       Mumblr::Post.all!(offset: page * 20)
@@ -40,9 +48,13 @@ class BoxWino < Sinatra::Base
   end
 
   get '/why' do
-    @why_box_wine = Mumblr::TextPost.tagged('why box wine').sort(:timestamp.asc)
+    @page['title']       = "Why Box Wine?"
+    @page['description'] = "Box wine isn't just for college anymore. Box wine is cheap, efficient, last a long time, and is delicious."
+    @page['keywords']   << ["green", "eco-friendly", "efficient"]
 
-    erb :why , locals: { why_box_wine: @why_box_wine }
+    why_box_wine = Mumblr::TextPost.tagged('why box wine').sort(:timestamp.asc)
+
+    erb :why , locals: { why_box_wine: why_box_wine }
   end
 
   get '/wine' do
@@ -50,19 +62,31 @@ class BoxWino < Sinatra::Base
   end
 
   get '/wines' do
-    @wine_features = Mumblr::PhotosetPost.tagged('wine_feature').sort(:timestamp.asc)
+    @page['title']       = "The Best Box Wines"
+    @page['description'] = "Here are some of our favorite box wines. We drink any box we can get our hands on, so you only need to try the best."
+    @page['keywords']   << ["reviews", "ratings", "somelier"]
 
-    erb :wines , locals: { wine_features: @wine_features }
+    wine_features = Mumblr::PhotosetPost.tagged('wine_feature').sort(:timestamp.asc)
+    wine_features.each do |wine|
+      @page['keywords'] << wine.tags.select{|tag| tag =~ /^[^_]+$/}
+    end
+
+    erb :wines , locals: { wine_features: wine_features }
   end
 
   get '/where' do
-    @wheres = Mumblr::TextPost.tagged('where_to_buy').sort(:timestamp.asc)
+    @page['title']     = "Where to buy Box Wine"
+    @page['keywords'] << ["shopping", "e-commerce"]
 
-    erb :where , locals: { wheres: @wheres }
+    wheres = Mumblr::TextPost.tagged('where_to_buy').sort(:timestamp.asc)
+
+    erb :where , locals: { wheres: wheres }
   end
 
   get '/' do
-    @welcome_message = Mumblr::TextPost.tagged('welcome_message').sort(:timestamp.asc).first
-    erb :index , locals: { welcome_message: @welcome_message }
+    @page['title'] = "Box Wino, or: How to stop spending a fortune and love the box"
+
+    welcome_message = Mumblr::TextPost.tagged('welcome_message').sort(:timestamp.asc).first
+    erb :index , locals: { welcome_message: welcome_message }
   end
 end

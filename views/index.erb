@@ -2,12 +2,12 @@
   <div class="col-sm-8 col-sm-offset-2">
 
     <div class="text-center" id="welcome-message">
-      <% unless @welcome_message.title.empty? %>
-      <h1><%= @welcome_message.title %></h1>
+      <% unless welcome_message.title.empty? %>
+      <h1><%= welcome_message.title %></h1>
       <% end %>
 
       <div>
-        <%= @welcome_message.body %>
+        <%= welcome_message.body %>
       </div>
     </div>
 

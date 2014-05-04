@@ -1,12 +1,21 @@
 <% image = wine.photos.first.alt_sizes.select{|photo| photo['width'].between?(150,250)}.first %>
-<div class="col-sm-6 col-md-4">
+<div itemscope itemtype="http://schema.org/Product" class="col-sm-6 col-md-4">
   <div class="text-center">
-    <img class="img-responsive" style="max-width:180px;max-height180px;margin:0 auto;" src="<%= image['url'] %>" />
+    <img itemprop="image" class="img-responsive" style="max-width:180px;max-height180px;margin:0 auto;" src="<%= image['url'] %>" />
   </div>
 
-  <%= wine.caption %>
+  <div itemprop="reviewBody">
+  <%= wine.caption
+          .gsub!(/^\<h([123]+)\>(.*)\<\/h[123]+\>$/, '<h\1 itemprop="name">\2</h\1>')
+          .gsub!(/\<p\>(.*)\<\/p\>/, '<p itemprop="description">\1</p>')
+  %>
+  </div>
 
+  <div itemprop="aggregateRating">
   <% wine.tags.grep(/(\d+)(\.\d+)?[ _-]{1}stars/i) do |glyph| %>
+      <span class="sr-only" itemprop="ratingValue"><%= "#{$1}" %></span>
+      <span class="sr-only" itemprop="worstRating">1</span>
+      <span class="sr-only" itemprop="bestRating">5</span>
       <h3 class="rating">
         <% "#{$1}".to_i.times do %>
         <i class="glyphicon glyphicon-star"></i>
@@ -16,6 +25,7 @@
         <% end %>
       </h3>
   <% end %>
+  </div>
 
   <ul class="wine-attributes list-unstyled">
     <% wine.tags.grep(/(size|price|hangover)_(.*)/i) do |glyph| %>
@@ -23,7 +33,9 @@
         <strong><%= "#{$1}".camelize %></strong>:
         <%= $1 == "price" ? "$" : "" %><%= "#{$2}" %>
       </li>
-      <% end %>
+    <% end %>
+    <li class="sr-only"><span itemprop="datePublished" content="<%= Time.at(wine.timestamp).iso8601 %>"><%= Time.at(wine.timestamp).strftime('%c') %></span></li>
+
   </ul>
 
   <hr />
