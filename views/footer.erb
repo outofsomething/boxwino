@@ -1,12 +1,14 @@
-<% if settings.environment == :production %>
+<% if true|| settings.environment == :production %>
 
+<div class="container">
 <hr />
 
 <div class="row text-center top-buffer">
+<div class="col-sm-12" style="padding:0;">
 <style>
-.box-wino-footer { width: 320px; height: 50px; }
-@media(min-width: 500px) { .box-wino-footer { width: 468px; height: 60px; } }
-@media(min-width: 800px) { .box-wino-footer { width: 728px; height: 90px; } }
+.box-wino-footer { width: 95%; height: 70px; padding: 0; margin: 0; }
+@media(min-width: 500px) { .box-wino-footer { height: 90px; } }
+@media(min-width: 800px) { .box-wino-footer { height: 120px; } }
 </style>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Box Wino Footer -->
@@ -18,11 +20,13 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div>
+</div>
 <div class="clearfix"></div>
+</div>
 
 <% end %>
 
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+<nav class="navbar navbar-default navbar-static-bottom" role="navigation">
   <div class="container-fluid">
     <div class="navbar-footer text-center">
       <span class="navbar-text" style="margin-right:0;">&copy; <%= Time.new.year %></span> <a class="navbar-text" target="blank" href="http://outofsomething.com">Out of Something, LLC</a>
