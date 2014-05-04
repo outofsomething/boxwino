@@ -8,7 +8,8 @@
     </div>
   </div><!-- /.container-fluid -->
 </nav>
-<% if settings.environment == :production %>
+
+<% if true ||settings.environment == :production %>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -19,4 +20,21 @@
   ga('send', 'pageview');
 
 </script>
+
+<div class="col-sm-12 text-center">
+<style>
+.box-wino-footer { width: 320px; height: 50px; }
+@media(min-width: 500px) { .box-wino-footer { width: 468px; height: 60px; } }
+@media(min-width: 800px) { .box-wino-footer { width: 728px; height: 90px; } }
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Box Wino Footer -->
+<ins class="adsbygoogle box-wino-footer"
+     style="display:inline-block;"
+     data-ad-client="ca-pub-5581753242562587"
+     data-ad-slot="5720843754"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 <% end %>
