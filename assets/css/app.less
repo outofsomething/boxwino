@@ -4,6 +4,14 @@
 @icon-font-path: "/fonts/";
 /** End bootstrap **/
 
+@brand-primary: #6e1432;
+@font-family-sans-serif: "Proxima Nova", Helvetica;
+@font-size-h1: floor((@font-size-base * 2));
+@gray-darker: #2f2f2f;
+p {
+  font-size: floor((@font-size-base * 1.5)) !important;
+}
+
 body {
   //padding-bottom: 70px;
 }
@@ -17,7 +25,11 @@ body {
   width: 100% !important;
   margin-bottom: 0;
   padding-bottom:0;
+  a { font-weight: bold; color: @gray-darker; }
+  //@navbar-default-link-color: @gray-darker; //?
 }
+@navbar-default-bg: @body-bg;
+@navbar-default-border: none;
 
 #brand-logo {
   margin-left: auto;
@@ -25,13 +37,28 @@ body {
   height: auto;
 }
 
+#continue-reading {
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+hr {
+  border-bottom: 5px solid black;
+}
+
 .description {
   h2 {
     margin-top: 50px;
+    font-weight: bold;
   }
-  p {
-    font-size: 1.5em;
-  }
+}
+
+.navbar-footer {
+  font-size: 16px;
+  a {color: black;}
 }
 
 @media (max-width: 767px) {
@@ -42,6 +69,7 @@ body {
     }
   }
 
+  //@grid-float-breakpoint: 0; //this can replace the below
   .nav ul.nav li {
     display: inline;
     a {

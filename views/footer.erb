@@ -1,8 +1,5 @@
 <% if settings.environment == :production %>
 
-<hr />
-
-<div class="container">
 <div class="row text-center top-buffer">
   <div class="col-sm-12" style="padding:0;">
       <style>
@@ -22,20 +19,24 @@
   </div>
 </div>
 <div class="clearfix"></div>
-</div>
 
 <% end %>
 
-<nav class="navbar navbar-default navbar-static-bottom" role="navigation">
-  <div class="container-fluid">
+<hr style="margin-bottom:0;" />
+
+<div class="row">
+  <div class="col-sm-12">
+<nav class="navbar navbar-default" role="navigation">
     <div class="navbar-footer text-center">
-      <span class="navbar-text" style="margin-right:0;">&copy; <%= Time.new.year %></span> <a class="navbar-text" target="blank" href="http://outofsomething.com">Out of Something, LLC</a>
+      <span class="navbar-text" style="margin-right:0;margin-left:0;">&copy; <%= Time.new.year %></span> <a class="navbar-text" target="blank" href="http://outofsomething.com">Out of Something, LLC</a>
     </div>
     <div class="navbar-footer navbar-right text-center">
-      <span class="navbar-text" style="margin-right:0;"><i class="glyphicon glyphicon-glass"></i> Enjoy your box responsibly</span>
+      <span class="navbar-text" style="margin-right:0;margin-left:0;"><img src="/images/wine-glass.svg" style="height:0.9em;margin-bottom:.3em;margin-right:.3em;" /> Enjoy your box responsibly</span>
     </div>
-  </div><!-- /.container-fluid -->
 </nav>
+  </div>
+</div>
+
 
 <% if settings.environment == :production %>
 

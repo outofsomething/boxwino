@@ -28,6 +28,8 @@
   <meta name="msapplication-wide310x150logo" content="/favicons/widetile.png" />
   <meta name="msapplication-square310x310logo" content="/favicons/largetile.png" />
 
+  <script type="text/javascript" src="//use.typekit.net/dhs4yxz.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <%= css :application, :media => 'screen' %>
@@ -38,8 +40,8 @@
     <%= erb :header %>
 
     <%= yield %>
-  </div>
 
-  <%= erb :footer %>
+    <%= erb :footer %>
+  </div>
 </body>
 </html>

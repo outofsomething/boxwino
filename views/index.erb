@@ -1,7 +1,6 @@
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-
-    <div class="text-center" id="welcome-message">
+<div class="row bottom-buffer">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div id="welcome-message">
       <% unless welcome_message.title.empty? %>
       <h1><%= welcome_message.title %></h1>
       <% end %>
@@ -11,9 +10,7 @@
       </div>
     </div>
 
-    <hr />
-
-    <div class="description text-center">
+    <div class="description" id="continue-reading">
       <p><a href="/why">Read more about why box wine is better than bottled wine.</a></p>
       <p><a href="/wines">Check out a few of the best boxes.</a></p>
       <p><a href="/where">Go find some!</a></p>
