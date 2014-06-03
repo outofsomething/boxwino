@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/thelowlypeon/mumblr.git
-  revision: 5410d8ef0bbdba16cc6751fd999a57f6efccc02f
+  revision: 69fd774e48cc83e6f693402877afa07bc2f891a9
   specs:
-    mumblr (0.0.3)
+    mumblr (0.0.4)
       bson_ext (~> 1.5)
       mongo_mapper
       tumblr_client
@@ -10,18 +10,18 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.1.0)
-      activesupport (= 4.1.0)
+    activemodel (4.1.1)
+      activesupport (= 4.1.1)
       builder (~> 3.1)
-    activesupport (4.1.0)
+    activesupport (4.1.1)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    bson (1.10.0)
-    bson_ext (1.10.0)
-      bson (~> 1.10.0)
+    bson (1.10.1)
+    bson_ext (1.10.1)
+      bson (~> 1.10.1)
     builder (3.2.2)
     commonjs (0.2.7)
     daemons (1.1.9)
@@ -39,10 +39,10 @@ GEM
     less (2.5.0)
       commonjs (~> 0.2.7)
     libv8 (3.16.14.3)
-    mime-types (2.2)
-    minitest (5.3.3)
-    mongo (1.10.0)
-      bson (~> 1.10.0)
+    mime-types (2.3)
+    minitest (5.3.4)
+    mongo (1.10.1)
+      bson (~> 1.10.1)
     mongo_mapper (0.13.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0)
@@ -76,7 +76,7 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
-    thread_safe (0.3.3)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     tumblr_client (0.8.2)
       faraday (>= 0.8)
@@ -85,7 +85,7 @@ GEM
       mime-types
       oauth
       simple_oauth
-    tzinfo (1.1.0)
+    tzinfo (1.2.1)
       thread_safe (~> 0.1)
 
 PLATFORMS
