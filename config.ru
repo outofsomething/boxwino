@@ -1,5 +1,6 @@
 # encoding: UTF-8
 require 'dotenv'
+Dotenv.load
 require './app.rb'
 require 'less'
 require 'mumblr'
